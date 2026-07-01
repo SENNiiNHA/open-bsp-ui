@@ -1,4 +1,40 @@
-# Claude Code Instructions
+# CLAUDE.md — open-bsp-ui (careca3d)
+
+Fork de `matiasbattocchia/open-bsp-ui` = **inbox de WhatsApp da careca3d** (Vite +
+React 19 + TanStack + Tailwind v4). Fala com o Supabase do OpenBSP
+(`openbsp-careca3d` / ref `tfugfsqycvhfvbpipgep`). Deploy: Vercel, projeto
+`open-bsp-ui` → `open-bsp-ui-tau.vercel.app`. Contexto na plataforma:
+`careca3d/docs/WHATSAPP_INBOX.md`.
+
+## Padrão de qualidade (mesmo do careca3d)
+
+- **Nunca commitar direto em `main` nem `develop`.** Fluxo:
+  `feat|fix|chore/<nome>` → PR → **`develop`** → PR (promote) → `main`. `main` é o
+  que a Vercel serve.
+- **Gates locais (husky) espelham o CI (`.github/workflows/check.yml`):**
+  `pre-commit` = `lint-staged` (eslint --fix + prettier nos staged); `commit-msg`
+  = `commitlint` (Conventional Commits, subject minúscula); `pre-push` =
+  `npm run check` (`prettier --check . && eslint . && tsc -b`).
+- **TS strict** + eslint type-aware; `tsc -b` é a fonte da verdade.
+
+## Identidade visual (não driftar)
+
+Tema **careca3d "Vibrante"**: violeta `oklch(0.54 0.25 295)` + lima
+`oklch(0.92 0.2 125)`, Bricolage Grotesque nos títulos. Tudo em
+**`src/global.css`** + `index.html`. Fonte-única = `careca3d/docs/STYLEGUIDE.md`.
+Ao puxar update do upstream (`git fetch upstream`), os conflitos esperados são só
+a camada de marca (`src/global.css`, `index.html`, `public/logo*`): manter a
+marca, aceitar o resto. Copy visível pt-BR = sem em-dash, tom maker (VOICE.md).
+
+## Env (Vite, baked, PÚBLICO)
+
+`VITE_SUPABASE_URL` = `https://tfugfsqycvhfvbpipgep.supabase.co` +
+`VITE_SUPABASE_ANON_KEY` (anon do `openbsp-careca3d`, pública) no projeto Vercel
+`open-bsp-ui` → Env Vars (Production). Detalhe em `careca3d/docs/WHATSAPP_INBOX.md`.
+
+---
+
+# Claude Code Instructions (upstream)
 
 ## UI
 
