@@ -22,3 +22,6 @@ mise.toml
 
 .tanstack
 dist/
+# Local tooling artifacts (careca3d)
+.vercel
+supabase/.temp
