@@ -5,3 +5,9 @@ src/routeTree.gen.ts
 # Build output and excluded/legacy code (also excluded from tsconfig + ESLint)
 dist
 src/deprecated
+
+# Local tooling / generated
+.vercel
+supabase/.temp
+node_modules
+package-lock.json

@@ -1,0 +1,2 @@
+# mesmos gates do CI (.github/workflows/check.yml): prettier + eslint + tsc
+npm run check

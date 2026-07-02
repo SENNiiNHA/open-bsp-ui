@@ -8,7 +8,10 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "types:sync-check": "bash scripts/check-type-sync.sh"
+    "types:sync-check": "bash scripts/check-type-sync.sh",
+    "prepare": "husky",
+    "typecheck": "tsc -b",
+    "check": "prettier --check . && npm run lint && tsc -b"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.81.1",
@@ -38,6 +41,8 @@
     "zustand": "^5.0.8"
   },
   "devDependencies": {
+    "@commitlint/cli": "^21.2.0",
+    "@commitlint/config-conventional": "^21.2.0",
     "@eslint/js": "^9.39.1",
     "@tanstack/eslint-plugin-query": "^5.91.2",
     "@tanstack/router-plugin": "^1.136.8",
@@ -52,6 +57,8 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.8",
     "prettier": "3.6.2",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.3",
